@@ -19,7 +19,7 @@
         <TextBox x:Name="txtTiempoInicial" HorizontalAlignment="Left" Height="23" Margin="359,76,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtTiempoFinal" HorizontalAlignment="Left" Height="23" Margin="359,128,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnGraficar" Content="Graficar" HorizontalAlignment="Left" Margin="628,90,0,0" VerticalAlignment="Top" Width="127" Height="59" FontSize="22" Click="BtnGraficar_Click"/>
-        <ScrollViewer  HorizontalAlignment="Left" Height="292" Margin="10,270,0,0" VerticalAlignment="Top" Width="881" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible">
+        <ScrollViewer x:Name="scrGrafica"  HorizontalAlignment="Left" Height="292" Margin="10,270,0,0" VerticalAlignment="Top" Width="881" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible">
             <Polyline Stroke="Crimson" StrokeThickness="2" Name="plnGrafica" />
         </ScrollViewer>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="359,156,0,0" TextWrapping="Wrap" Text="Frecuencia de Muestreo" VerticalAlignment="Top" Width="140"/>
