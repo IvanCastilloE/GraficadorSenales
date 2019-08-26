@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Muestra.cs" />
     <Compile Include="SenalSenoidal.cs" />
     <Compile Include="SeñalSenoidal.cs" />
     <Page Include="MainWindow.xaml">
