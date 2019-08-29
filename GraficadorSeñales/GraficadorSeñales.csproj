@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Muestra.cs" />
     <Compile Include="SenalSenoidal.cs" />
+    <Compile Include="SeñalParabolica.cs" />
     <Compile Include="SeñalSenoidal.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
