@@ -29,9 +29,9 @@ namespace GraficadorSeñales
 
         private void BtnGraficar_Click(object sender, RoutedEventArgs e)
         {
-            double amplitud = double.Parse(txtAmplitud.Text);
+            /*double amplitud = double.Parse(txtAmplitud.Text);
             double fase = double.Parse(txtFase.Text);
-            double frecuencia = double.Parse(txtFrecuencia.Text);
+            double frecuencia = double.Parse(txtFrecuencia.Text);*/
             double tiempoInicial = double.Parse(txtTiempoInicial.Text);
             double tiempoFinal = double.Parse(txtTiempoFinal.Text);
             double frecuenciaMuestreo = double.Parse(txtFrecuenciaMuestreo.Text);
@@ -74,6 +74,21 @@ namespace GraficadorSeñales
         public Point adaptarCoordenadas(double x, double y, double tiempoInicial, double amplitudMaxima)
         {
             return new Point((x-tiempoInicial) * scrGrafica.Width, (-1 * (y * ((( scrGrafica.Height / 2.0) - 25)/amplitudMaxima ) )) + (scrGrafica.Height / 2.0));
+        }
+
+        private void CbTipoSeñal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            panelConfiguracion.Children.Clear();
+            switch (cbTipoSeñal.SelectedIndex)
+            {
+                case 0: //Exponencial
+                    break;
+                case 1: //Senoidal
+                    panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
+                    break;
+                default:
+                    break;
+            }
         }
         //Teorema de muestreo fs=2fmax+1
     }

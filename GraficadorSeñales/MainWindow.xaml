@@ -7,13 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="624" Width="909">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="36,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="138" FontSize="18"><Run Text="Señal "/><Run Text="Parabolica"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="36,49,0,0" TextWrapping="Wrap" Text="Amplitud:" VerticalAlignment="Top" Width="59" Visibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Left" Margin="36,104,0,0" TextWrapping="Wrap" Text="Fase:" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Left" Margin="36,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Visibility="Hidden"><Run Text="Frecuencia"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="txtAmplitud" HorizontalAlignment="Left" Height="23" Margin="36,76,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
-        <TextBox x:Name="txtFase" HorizontalAlignment="Left" Height="23" Margin="36,125,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
-        <TextBox x:Name="txtFrecuencia" HorizontalAlignment="Left" Height="23" Margin="36,174,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="138" FontSize="18" Text="Tipo de señal:"/>
         <TextBlock HorizontalAlignment="Left" Margin="359,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Tiempo "/><Run Text="I"/><Run Text="nicial:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="359,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Tiempo "/><Run Text="Final"/><Run Text=":"/></TextBlock>
         <TextBox x:Name="txtTiempoInicial" HorizontalAlignment="Left" Height="23" Margin="359,76,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
@@ -33,5 +27,10 @@
         <TextBlock x:Name="lblLimiteSuperior" HorizontalAlignment="Left" Margin="36,270,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="170" TextAlignment="Right"/>
         <TextBlock x:Name="lblLimiteInferior" HorizontalAlignment="Left" Margin="36,524,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="170" TextAlignment="Right"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,400,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="170" TextAlignment="Right"/>
+        <Grid x:Name="panelConfiguracion" HorizontalAlignment="Left" Height="153" Margin="36,44,0,0" VerticalAlignment="Top" Width="306"/>
+        <ComboBox x:Name="cbTipoSeñal" HorizontalAlignment="Left" Margin="179,22,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0" SelectionChanged="CbTipoSeñal_SelectionChanged">
+            <ComboBoxItem>Señal exponencial</ComboBoxItem>
+            <ComboBoxItem>Señal senoidal</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>
