@@ -36,26 +36,38 @@ namespace GraficadorSeñales
             double tiempoFinal = double.Parse(txtTiempoFinal.Text);
             double frecuenciaMuestreo = double.Parse(txtFrecuenciaMuestreo.Text);
 
-            //SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);
-            //SeñalParabolica señal = new SeñalParabolica();
-            SeñalSigno señal = new SeñalSigno();
-            double periodoMuestreo = 1.0 / frecuenciaMuestreo;
-            double amplitudMaxima = 0.0;
+            Señal señal;
+
+            switch (cbTipoSeñal.SelectedIndex)
+            {
+                case 0: //Parabolica
+                    señal = new SeñalParabolica();
+                    break;
+                case 1: //senoidal
+                    double amplitud = double.Parse(((ConfiguracionSeñalSenoidal)(panelConfiguracion.Children[0])).txtAmplitud.Text);
+                    double fase = double.Parse(((ConfiguracionSeñalSenoidal)(panelConfiguracion.Children[0])).txtFase.Text);
+                    double frecuencia = double.Parse(((ConfiguracionSeñalSenoidal)(panelConfiguracion.Children[0])).txtFrecuencia.Text);
+                    señal = new SeñalSenoidal(amplitud, fase, frecuencia);
+
+                    break;
+                case 2:
+                    double alpha = double.Parse(((ConfiguracionSeñalExponencial)(panelConfiguracion.Children[0])).txtAlpha.Text);
+                    señal = new SeñalExponencial(alpha);
+                    break;
+                default:
+                    señal = null;
+                    break;
+            }
+            //SeñalSigno señal = new SeñalSigno();
+
+            señal.TiempoInicial = tiempoInicial;
+            señal.TiempoFinal = tiempoFinal;
+            señal.FrecuenciaMuestreo = frecuenciaMuestreo;
+
+            señal.constriurSeñal();
+            double amplitudMaxima = señal.AmplitudMaxima;
 
             plnGrafica.Points.Clear();
-
-            for(double i=tiempoInicial; i<=tiempoFinal; i+= periodoMuestreo)
-            {
-                double valorMuestra = señal.evaluar(i);
-                if (Math.Abs(valorMuestra) > amplitudMaxima)
-                {
-                    amplitudMaxima = Math.Abs(valorMuestra);
-                }
-                Muestra muestra = new Muestra(i, valorMuestra);
-                señal.Muestras.Add(muestra);
-
-            }
-
 
             foreach(Muestra muestra in señal.Muestras)
             {
@@ -85,6 +97,9 @@ namespace GraficadorSeñales
                     break;
                 case 1: //Senoidal
                     panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
+                    break;
+                case 2:
+                    panelConfiguracion.Children.Add(new ConfiguracionSeñalExponencial());
                     break;
                 default:
                     break;
