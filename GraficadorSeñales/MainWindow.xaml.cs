@@ -29,9 +29,6 @@ namespace GraficadorSeñales
 
         private void BtnGraficar_Click(object sender, RoutedEventArgs e)
         {
-            /*double amplitud = double.Parse(txtAmplitud.Text);
-            double fase = double.Parse(txtFase.Text);
-            double frecuencia = double.Parse(txtFrecuencia.Text);*/
             double tiempoInicial = double.Parse(txtTiempoInicial.Text);
             double tiempoFinal = double.Parse(txtTiempoFinal.Text);
             double frecuenciaMuestreo = double.Parse(txtFrecuenciaMuestreo.Text);
@@ -42,6 +39,7 @@ namespace GraficadorSeñales
             {
                 case 0: //Parabolica
                     señal = new SeñalParabolica();
+
                     break;
                 case 1: //senoidal
                     double amplitud = double.Parse(((ConfiguracionSeñalSenoidal)(panelConfiguracion.Children[0])).txtAmplitud.Text);
@@ -50,21 +48,31 @@ namespace GraficadorSeñales
                     señal = new SeñalSenoidal(amplitud, fase, frecuencia);
 
                     break;
-                case 2:
+                case 2: //Exponencial
                     double alpha = double.Parse(((ConfiguracionSeñalExponencial)(panelConfiguracion.Children[0])).txtAlpha.Text);
                     señal = new SeñalExponencial(alpha);
+                    break;
+                case 3: //Audio
+                    string rutaArchivo = ((ConfiguracionAudio)(panelConfiguracion.Children[0])).txtRutaArchivo.Text;
+                    señal = new SeñalAudio(rutaArchivo);
+                    txtTiempoInicial.Text = señal.TiempoInicial.ToString();
+                    txtTiempoFinal.Text = señal.TiempoFinal.ToString();
+                    txtFrecuenciaMuestreo.Text = señal.FrecuenciaMuestreo.ToString();
                     break;
                 default:
                     señal = null;
                     break;
             }
-            //SeñalSigno señal = new SeñalSigno();
+            if(cbTipoSeñal.SelectedIndex !=3 && señal != null)
+            {
+                señal.TiempoInicial = tiempoInicial;
+                señal.TiempoFinal = tiempoFinal;
+                señal.FrecuenciaMuestreo = frecuenciaMuestreo;
+                señal.constriurSeñal();
 
-            señal.TiempoInicial = tiempoInicial;
-            señal.TiempoFinal = tiempoFinal;
-            señal.FrecuenciaMuestreo = frecuenciaMuestreo;
+            }
 
-            señal.constriurSeñal();
+
             double amplitudMaxima = señal.AmplitudMaxima;
 
             plnGrafica.Points.Clear();
@@ -93,13 +101,16 @@ namespace GraficadorSeñales
             panelConfiguracion.Children.Clear();
             switch (cbTipoSeñal.SelectedIndex)
             {
-                case 0: //Exponencial
+                case 0: //Parabolica
                     break;
                 case 1: //Senoidal
                     panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
                     break;
                 case 2:
                     panelConfiguracion.Children.Add(new ConfiguracionSeñalExponencial());
+                    break;
+                case 3:
+                    panelConfiguracion.Children.Add(new ConfiguracionAudio());
                     break;
                 default:
                     break;
