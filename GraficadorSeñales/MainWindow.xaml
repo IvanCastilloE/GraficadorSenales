@@ -43,6 +43,9 @@
         <TextBlock x:Name="lblLimiteInferiorResultado" HorizontalAlignment="Left" Margin="36,686,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="170" TextAlignment="Right"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,602,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="170" TextAlignment="Right"/>
         <TextBlock HorizontalAlignment="Left" Margin="456,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontSize="18" Height="29"><Run Text="Operaci"/><Run Text="ó"/><Run Text="n"/><Run Text=":"/><LineBreak/><Run/></TextBlock>
-        <ComboBox HorizontalAlignment="Left" Margin="569,22,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbOperacion" HorizontalAlignment="Left" Margin="569,22,0,0" VerticalAlignment="Top" Width="164" SelectionChanged="CbOperacion_SelectionChanged">
+            <ComboBoxItem>Escala de amplitud</ComboBoxItem>
+        </ComboBox>
+        <Grid x:Name="panelConfiguracionOperacion" HorizontalAlignment="Left" Height="146" Margin="456,51,0,0" VerticalAlignment="Top" Width="277"/>
     </Grid>
 </Window>
