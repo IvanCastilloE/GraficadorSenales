@@ -12,9 +12,7 @@ namespace GraficadorSeñales
         public double TiempoInicial { get; set; }
         public double TiempoFinal { get; set; }
         public double FrecuenciaMuestreo { get; set; }
-
         public double AmplitudMaxima { get; set; }
-
         public abstract double evaluar(double tiempo);
 
         public void constriurSeñal()
@@ -46,6 +44,24 @@ namespace GraficadorSeñales
                 double nuevoValor = muestra.Y * factorEscala;
                 resultado.Muestras.Add(new Muestra(muestra.X, muestra.Y * factorEscala));
                 if(Math.Abs(nuevoValor) > resultado.AmplitudMaxima)
+                {
+                    resultado.AmplitudMaxima = Math.Abs(nuevoValor);
+                }
+            }
+
+            return resultado;
+        }
+        public static Señal desplazarAmplitud(Señal señalOriginal, double cantidadDesplazamiento)
+        {
+            SeñalResultante resultado = new SeñalResultante();
+            resultado.TiempoInicial = señalOriginal.TiempoInicial;
+            resultado.TiempoFinal = señalOriginal.TiempoFinal;
+            resultado.FrecuenciaMuestreo = señalOriginal.FrecuenciaMuestreo;
+            foreach (var muestra in señalOriginal.Muestras)
+            {
+                double nuevoValor = muestra.Y + cantidadDesplazamiento;
+                resultado.Muestras.Add(new Muestra(muestra.X, muestra.Y + cantidadDesplazamiento));
+                if (Math.Abs(nuevoValor) > resultado.AmplitudMaxima)
                 {
                     resultado.AmplitudMaxima = Math.Abs(nuevoValor);
                 }

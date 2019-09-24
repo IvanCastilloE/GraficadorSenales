@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace GraficadorSeñales
 {
     /// <summary>
-    /// Lógica de interacción para OperacionEscalaAmplitud.xaml
+    /// Lógica de interacción para OperacionDesplazamientoAmplitud.xaml
     /// </summary>
-    public partial class OperacionEscalaAmplitud : UserControl
+    public partial class OperacionDesplazamientoAmplitud : UserControl
     {
-        public OperacionEscalaAmplitud()
+        public OperacionDesplazamientoAmplitud()
         {
             InitializeComponent();
-        }
-
-        private void TxtFactorEscala_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -69,6 +69,9 @@
       <DependentUpon>ConfiguracionSeñalSenoidal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Muestra.cs" />
+    <Compile Include="OperacionDesplazamientoAmplitud.xaml.cs">
+      <DependentUpon>OperacionDesplazamientoAmplitud.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OperacionEscalaAmplitud.xaml.cs">
       <DependentUpon>OperacionEscalaAmplitud.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OperacionDesplazamientoAmplitud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OperacionEscalaAmplitud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
