@@ -16,6 +16,7 @@
         <ScrollViewer x:Name="scrGrafica"  HorizontalAlignment="Left" Height="216" Margin="211,270,0,0" VerticalAlignment="Top" Width="805" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible">
             <Grid>
                 <Polyline Stroke="Crimson" StrokeThickness="2" Name="plnGrafica" />
+                <Polyline Stroke="Coral" StrokeThickness="2" Name="plnGrafica_2"/>
                 <Polyline Stroke="Black" StrokeThickness="1" Name="plnEjeX"/>
                 <Polyline Stroke="Black" StrokeThickness="1" Name="plnEjeY"/>
             </Grid>
