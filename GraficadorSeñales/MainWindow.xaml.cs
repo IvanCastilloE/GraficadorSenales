@@ -104,7 +104,7 @@ namespace GraficadorSeñales
                         segundaSeñal = null;
                         break;
                 }
-                if(cbTipoSeñal_2.SelectedIndex !=2 && segundaSeñal != null)
+                if(cbTipoSeñal_2.SelectedIndex !=3 && segundaSeñal != null)
                 {
                     segundaSeñal.TiempoInicial = tiempoInicial;
                     segundaSeñal.TiempoFinal = tiempoFinal;
