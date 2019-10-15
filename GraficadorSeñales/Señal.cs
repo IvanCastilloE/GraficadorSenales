@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace GraficadorSeñales
 {
@@ -103,6 +104,24 @@ namespace GraficadorSeñales
                     resultado.AmplitudMaxima = Math.Abs(nuevoValor);
                 }
                 indice++;
+            }
+            return resultado;
+        }
+
+        public static Señal transformadaFourier(Señal señal)
+        {
+            SeñalResultante resultado = new SeñalResultante();
+            resultado.TiempoInicial = señal.TiempoInicial;
+            resultado.TiempoFinal = señal.TiempoFinal;
+            resultado.FrecuenciaMuestreo = señal.FrecuenciaMuestreo;
+            for (int k=0; k < señal.Muestras.Count; k++)
+            {
+                Complex muestra = 0; // = 0 + 0i
+                for(int n=0; n < señal.Muestras.Count; n++)
+                {
+                    muestra += señal.Muestras[n].Y * Complex.Exp(-2 * Math.PI * Complex.ImaginaryOne * k * n / señal.Muestras.Count);
+                }
+                resultado.Muestras.Add(new Muestra(señal.Muestras[k].X, muestra.Magnitude));
             }
             return resultado;
         }

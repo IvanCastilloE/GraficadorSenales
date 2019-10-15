@@ -49,6 +49,7 @@
             <ComboBoxItem>Desplazamiento de amplitud</ComboBoxItem>
             <ComboBoxItem>Multiplicacion de señales</ComboBoxItem>
             <ComboBoxItem>Escala exponencial</ComboBoxItem>
+            <ComboBoxItem>Transformada de Fourier</ComboBoxItem>
         </ComboBox>
         <Grid x:Name="panelConfiguracionOperacion" HorizontalAlignment="Left" Height="146" Margin="362,51,0,0" VerticalAlignment="Top" Width="278"/>
         <TextBlock x:Name="lblTipoSeñal2" HorizontalAlignment="Left" Margin="676,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="138" FontSize="18" Text="Tipo de señal:"/>
