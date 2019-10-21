@@ -133,6 +133,9 @@ namespace GraficadorSeñales
                         (panelConfiguracionOperacion.Children[0])).txtExponente.Text);
                     señalResultante = Señal.escalaExponencial(señal, exponente);
                     break;
+                case 4: //transformada de Fourier
+                    señalResultante = Señal.transformadaFourier(señal);
+                    break;
                 default:
                     señalResultante = null;
                     break;
@@ -275,6 +278,7 @@ namespace GraficadorSeñales
             }
         }
         //Teorema de muestreo fs=2fmax+1
+        //indice a Hz (i * fm) / N
     }
 }
 

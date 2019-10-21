@@ -60,5 +60,6 @@
             <ComboBoxItem Content="Señal exponencial"/>
             <ComboBoxItem Content="Señal Audio"/>
         </ComboBox>
+        <TextBlock x:Name="lblHz" HorizontalAlignment="Left" Margin="36,576,0,0" TextWrapping="Wrap" Text="0 Hz" VerticalAlignment="Top" FontSize="36"/>
     </Grid>
 </Window>
