@@ -126,9 +126,7 @@ namespace GraficadorSeñales
                 {
                     señal.AmplitudMaxima = Math.Abs(muestra.Magnitude);
                 }
-
             }
-
             return resultado;
         }
 
